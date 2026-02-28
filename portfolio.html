@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zehua Yu - HCI Portfolio</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    body {
+      background-color: #fafafa;
+      color: #111;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    @media (min-width: 768px) {
+      body { cursor: none; }
+      a, button { cursor: none; }
+    }
+
+    #custom-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 12px;
+      height: 12px;
+      background-color: white;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      mix-blend-mode: difference;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s ease-out, height 0.3s ease-out;
+      display: none;
+    }
+    @media (min-width: 768px) {
+      #custom-cursor { display: block; }
+    }
+    #custom-cursor.hovering {
+      width: 36px;
+      height: 36px;
+    }
+
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .reveal-item.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .arrow-box {
+      position: relative;
+      width: 16px;
+      height: 16px;
+      overflow: hidden;
+    }
+    .arrow-out, .arrow-in {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+    }
+    .arrow-in {
+      transform: translate(-100%, 100%);
+    }
+    .group-link:hover .arrow-out {
+      transform: translate(100%, -100%);
+    }
+    .group-link:hover .arrow-in {
+      transform: translate(0, 0);
+    }
+
+    .underline-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #111;
+      transform: translateX(-101%);
+      transition: transform 0.3s ease-out;
+    }
+    .underline-link:hover::after {
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body class="selection:bg-black selection:text-white antialiased">
+
+  <div id="custom-cursor"></div>
+
+  <nav class="fixed top-0 w-full bg-[#fafafa]/80 backdrop-blur-md z-50 border-b border-black">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-12 h-16 flex justify-between items-center text-xs font-bold uppercase tracking-widest">
+      <span class="hover-target">Zehua Yu</span>
+      <div class="flex gap-8 overflow-hidden">
+        <a href="#work" class="hover-target relative py-1 underline-link overflow-hidden block">Work</a>
+        <a href="#about" class="hover-target relative py-1 underline-link overflow-hidden block">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-[1400px] mx-auto px-6 lg:px-12 pt-40 pb-32">
+    
+    <header class="mb-48">
+      <h1 class="reveal-item text-[12vw] leading-[0.85] font-black tracking-tighter uppercase mb-8">
+        Portfolio
+      </h1>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 border-t border-black pt-8">
+        <div class="reveal-item md:col-span-4 text-xs font-bold uppercase tracking-widest text-gray-500" style="transition-delay: 100ms;">
+          [ Profile ]
+        </div>
+        <div class="reveal-item md:col-span-8" style="transition-delay: 200ms;">
+          <h2 class="text-3xl md:text-5xl font-medium tracking-tight leading-tight mb-4">
+            Creative Technologist bridging<br />AI, HCI, and Fashion.
+          </h2>
+          <p class="text-xl text-gray-600 font-light max-w-2xl">
+            Exploring Tangible and Embodied Interaction (TEI), Soma Design, and Sustainable HCI by navigating between code and craft.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <section id="about" class="mb-48 border-t border-black pt-16">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-16">
+        <div class="reveal-item md:col-span-4 text-xs font-bold uppercase tracking-widest text-gray-500">
+          [ About & Skills ]
+        </div>
+        
+        <div class="md:col-span-8 grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div class="reveal-item text-lg leading-relaxed font-light text-gray-800" style="transition-delay: 100ms;">
+            <p class="mb-6">
+              My expertise is rooted in the intersection of <strong>Computer Science (B.Eng in AI Track)</strong> and <strong>Fashion Design</strong>.
+            </p>
+            <p class="mb-6">
+              I focus on creating embodied interactive prototypes and conducting user-centered research to empower sustainable practices. My work spans from building WebML/WebGL installations for somatic awareness to utilizing LLMs for qualitative meaning-making in garment repurposing.
+            </p>
+            <p>
+              I am driven to explore how Artificial Intelligence can act as a catalyst for sustainable HCI and facilitate deeper emotional connections between humans, intelligent systems, and materiality.
+            </p>
+          </div>
+
+          <div class="flex flex-col gap-8">
+            <div class="reveal-item hover-target group cursor-default" style="transition-delay: 200ms;">
+              <h3 class="text-sm font-bold uppercase tracking-widest mb-3 border-b border-gray-300 pb-2 transition-colors duration-500 group-hover:border-black">HCI Research & Methods</h3>
+              <p class="text-gray-600 text-sm leading-relaxed transition-colors duration-500 group-hover:text-black">Literature Review, Qualitative Analysis, Semi-structured Interviews, Framework Design, Study Protocol Formulation, Research-through-Design.</p>
+            </div>
+            <div class="reveal-item hover-target group cursor-default" style="transition-delay: 300ms;">
+              <h3 class="text-sm font-bold uppercase tracking-widest mb-3 border-b border-gray-300 pb-2 transition-colors duration-500 group-hover:border-black">Interaction Engineering</h3>
+              <p class="text-gray-600 text-sm leading-relaxed transition-colors duration-500 group-hover:text-black">JavaScript (ES6+), React, Vue, Three.js, WebGL/GLSL, TensorFlow.js, Web Audio API, Python, Rapid Prototyping.</p>
+            </div>
+            <div class="reveal-item hover-target group cursor-default" style="transition-delay: 400ms;">
+              <h3 class="text-sm font-bold uppercase tracking-widest mb-3 border-b border-gray-300 pb-2 transition-colors duration-500 group-hover:border-black">Design & Fabrication</h3>
+              <p class="text-gray-600 text-sm leading-relaxed transition-colors duration-500 group-hover:text-black">Figma, Garment Construction, Pattern Making, Upcycling/Deconstruction, Generative AI Tools.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="reveal-item border-t border-black pt-8 mb-24 flex justify-between items-end">
+         <div class="text-xs font-bold uppercase tracking-widest text-gray-500">
+          [ Selected Works ]
+        </div>
+        <div class="text-right text-xs uppercase tracking-widest text-gray-500">
+          HCI & Creative Tech
+        </div>
+      </div>
+
+      <div id="projects-container" class="space-y-40"></div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-black bg-white">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-12 py-12 flex flex-col md:flex-row justify-between items-center text-xs font-bold uppercase tracking-widest">
+      <p id="copyright-year">© 2024 ZEHUA YU</p>
+      <div class="flex gap-8 mt-6 md:mt-0 overflow-hidden">
+        <a href="mailto:xk21yzh@126.com" class="hover-target relative py-1 underline-link block">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ==========================================
+    // REVISED DATA FOR HCI APPLICATION
+    // Added Tsinghua Research Project & Rewrote descriptions
+    // ==========================================
+    const projects = [
+      {
+        number: "01",
+        title: "ReFashionPal",
+        subtitle: "LLM-Facilitated Meaning-Making",
+        category: "HCI Research / Sustainable HCI",
+        role: "Research Assistant @ Future Lab, Tsinghua Univ.",
+        tech: "Qualitative Research, Semi-structured Interviews, Multimodal LLMs",
+        description: "An ongoing HCI research project investigating how Multimodal LLMs can facilitate emotional attachment and sustainable garment repurposing. I proposed the 'Meaning-Design Translator' framework to convert personal narratives into actionable design decisions, mapped novice anxiety layers during repair, and designed a robust 10-question semi-structured interview protocol.",
+        image: "./0.png", // UPDATE THIS IMAGE
+        links: []
+      },
+      {
+        number: "02",
+        title: "The Tension of the Second Skin",
+        subtitle: "Embodied Biofeedback Installation",
+        category: "TEI / Soma Design / Engineering",
+        role: "Creative Technologist, Developer",
+        tech: "Three.js, TensorFlow.js (MoveNet), WebGL/GLSL",
+        description: "A browser-based interactive installation exploring somaesthetic awareness. By engineering a Motion Dynamics Analyzer via webcam, the system translates physical 'tension' and movement fluidity into real-time visual distortion and audio synthesis. It introduces 'Somatic Fading', guiding users from screen dependency to internal body sensations.",
+        image: "./1.png", 
+        links: [
+          { label: "Live Experience (v2: Motion Dynamics)", url: "https://second-skin-project.vercel.app/" },
+          { label: "Video Demo (v1: Posture Metric)", url: "https://youtu.be/7R0trhJ6fjU" }
+        ]
+      },
+      {
+        number: "03",
+        title: "The In-Between",
+        subtitle: "Research-through-Design & Form Giving",
+        category: "Material Exploration",
+        role: "Conceptual Designer",
+        tech: "Garment Deconstruction, Fabric Manipulation",
+        description: "Serving as the conceptual and material foundation for 'The Tension of the Second Skin', this project employs Research-through-Design (RtD) methods. I explored the topology of used clothing and psychological sanctuaries through physical prototyping ('STUFFING' techniques). This hands-on material exploration provided the groundwork for mapping physical tension into digital spaces.",
+        image: "./2.png",
+        links: []
+      },
+      {
+        number: "04",
+        title: "Critical Narratives of AI",
+        subtitle: "Post-Human Identity & Ecology",
+        category: "Speculative Design",
+        role: "Concept & Motion Developer",
+        tech: "Stable Diffusion, Midjourney, GenAI",
+        description: "A series of conceptual films (KINTSUGI & EIDOS OF AETHER) utilizing Generative AI as a tool for critical narrative. Exhibited at China Fashion Week, the project applies 'machine aesthetics' to speculate on post-human identities and challenge traditional notions of ecological repair in the augmented present.",
+        image: "./3.png",
+        links: [
+          { label: "Watch KINTSUGI", url: "https://youtu.be/tr_tZojcjk8" },
+          { label: "Watch EIDOS OF AETHER", url: "https://youtu.be/qzpp7_Li5e4" }
+        ]
+      }
+    ];
+
+    const container = document.getElementById('projects-container');
+    const arrowIcon = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>`;
+
+    projects.forEach((project, index) => {
+      const imageSrc = project.image;
+      let linksHtml = '';
+      if (project.links && project.links.length > 0) {
+        linksHtml = `<div class="mt-auto space-y-3">` + 
+          project.links.map(link => `
+            <a href="${link.url}" target="_blank" class="group-link hover-target flex items-center justify-between w-full p-4 bg-black text-white border border-black transition-colors duration-500 hover:bg-white hover:text-black">
+              <span class="text-xs font-bold uppercase tracking-widest relative z-10">${link.label}</span>
+              <div class="arrow-box">
+                <div class="arrow-out">${arrowIcon}</div>
+                <div class="arrow-in">${arrowIcon}</div>
+              </div>
+            </a>
+          `).join('') + `</div>`;
+      }
+
+      const html = `
+        <article class="group">
+          <div class="reveal-item grid grid-cols-1 md:grid-cols-12 gap-8 mb-8 items-end">
+            <div class="md:col-span-1 text-4xl md:text-6xl font-light text-gray-300">${project.number}</div>
+            <div class="md:col-span-11 hover-target">
+              <h2 class="text-4xl md:text-6xl font-bold tracking-tighter uppercase leading-none mb-2 transition-all duration-500 group-hover:tracking-tight group-hover:text-gray-700">${project.title}</h2>
+              <div class="flex gap-4 items-center flex-wrap">
+                <span class="text-xl text-gray-500 font-light">${project.subtitle}</span>
+                <span class="w-8 h-[1px] bg-gray-400 hidden sm:block transform origin-left transition-transform duration-500 group-hover:scale-x-150"></span>
+                <span class="text-xs font-bold uppercase tracking-widest text-[#2c2c2c]">${project.category}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-16">
+            <div class="reveal-item md:col-span-8 overflow-hidden bg-gray-200 aspect-[4/3] relative hover-target" style="transition-delay: 100ms;">
+              <img src="${imageSrc}" alt="${project.title}" loading="lazy" decoding="async"
+                   onerror="this.onerror=null; this.style.display='none'; this.parentElement.classList.add('flex', 'items-center', 'justify-center'); this.parentElement.insertAdjacentHTML('beforeend', '<span class=\\'text-gray-400 font-mono text-sm\\'>Placeholder for ${imageSrc}</span>');"
+                   class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] scale-100 group-hover:scale-[1.02]" />
+            </div>
+
+            <div class="reveal-item md:col-span-4 flex flex-col pt-4" style="transition-delay: 200ms;">
+              <div class="mb-12">
+                <div class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4 border-b border-gray-300 pb-2">Overview</div>
+                <p class="text-gray-800 leading-relaxed font-light">${project.description}</p>
+              </div>
+              <div class="mb-12">
+                <div class="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4 border-b border-gray-300 pb-2">Details</div>
+                <div class="space-y-4">
+                  <div>
+                    <span class="block text-[10px] uppercase tracking-widest text-gray-400 mb-1">Role</span>
+                    <span class="text-sm font-medium">${project.role}</span>
+                  </div>
+                  <div>
+                    <span class="block text-[10px] uppercase tracking-widest text-gray-400 mb-1">Methods & Tech</span>
+                    <span class="text-sm">${project.tech}</span>
+                  </div>
+                </div>
+              </div>
+              ${linksHtml}
+            </div>
+          </div>
+        </article>
+      `;
+      container.insertAdjacentHTML('beforeend', html);
+    });
+
+    document.getElementById('copyright-year').innerText = `© ${new Date().getFullYear()} ZEHUA YU`;
+
+    const cursor = document.getElementById('custom-cursor');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+    
+    document.addEventListener('mouseover', (e) => {
+      if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.hover-target')) {
+        cursor.classList.add('hovering');
+      } else {
+        cursor.classList.remove('hovering');
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    });
+
+    document.querySelectorAll('.reveal-item').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
